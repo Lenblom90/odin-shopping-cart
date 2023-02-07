@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '../styles/ShopItem.css';
 
 
-export default function ShopItem({src, name, id}) {
+export default function ShopItem({src, name, id, addToCart}) {
     const [amount, setAmount] = useState(0);
 
     const handleDecrement = () => {
@@ -21,6 +21,14 @@ export default function ShopItem({src, name, id}) {
         }
     }
 
+    const handleClick = () => {
+        const cartItem = {
+            id: id,
+            amount: amount
+        };
+        addToCart(cartItem);
+    }
+
     return(
         <div className="shop-item">
             <img className="product-image" src={src}></img>
@@ -30,7 +38,7 @@ export default function ShopItem({src, name, id}) {
                 <input className='product-input' id={'product-number' + id} defaultValue={amount} onChange={(e) => setAmount(parseInt(e.target.value))} type="number"/>
                 <button onClick={handleIncrement}>+</button>
             </div>
-            <button>Add To Cart</button>
+            <button onClick={handleClick}>Add To Cart</button>
         </div>
     )
 }

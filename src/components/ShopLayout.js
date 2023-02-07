@@ -2,7 +2,7 @@ import ShopItem from "./ShopItem";
 import src from '../images/shopping-cart.jpeg';
 import '../styles/ShopLayout.css';
 
-export default function ShopLayout() {
+export default function ShopLayout({addToCart}) {
     const products = [
         {
             id: 1,
@@ -32,11 +32,9 @@ export default function ShopLayout() {
 
     ];
 
-    
-
     return(
         <div className="shop-layout">
-            {products.map((product) => <ShopItem key={product.id} id={product.id} name={product.name} src={product.src}/>)}
+            {products.map((product) => <ShopItem key={product.id} id={product.id} name={product.name} src={product.src} addToCart={addToCart}/>)}
         </div>
     )
 }
