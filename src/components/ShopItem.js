@@ -31,7 +31,7 @@ export default function ShopItem({src, name, id, addToCart}) {
 
     return(
         <div className="shop-item">
-            <img className="product-image" src={src}></img>
+            <img className="product-image" src={src} alt={name + "-image"}></img>
             <p className="product-name">{name}</p>
             <div>
                 <button onClick={(handleDecrement)}>-</button>
